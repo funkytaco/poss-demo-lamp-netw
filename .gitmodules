@@ -4,3 +4,6 @@
 [submodule "dockerfiles/docker-httpd"]
 	path = dockerfiles/docker-httpd
 	url = https://github.com/alterway/docker-httpd.git
+[submodule "dockerfiles/docker-mysql"]
+	path = dockerfiles/docker-mysql
+	url = https://github.com/alterway/docker-mysql.git
