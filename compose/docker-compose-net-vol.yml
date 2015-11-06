@@ -1,0 +1,36 @@
+httpd:
+  hostname: httpd-demo-wp
+  image: alterway/httpd:2.4
+  env_file:
+    - ./httpd.env
+    - ./phpfpm.env
+  environment:
+   - constraint:node==${NODE_1}
+  net: ${NETWORK}
+  ports:
+  - 80:80
+  volumes:
+  - 'gfs2/nfs_volume:/var/www'
+  volume_driver: nfs
+mysql:
+  image: alterway/mysql:5.6
+  container_name: db
+  env_file:
+    - ./mysql.env
+  environment:
+   - constraint:node==${NODE_2}
+  net: ${NETWORK}
+  volumes:
+  - /var/lib/mysql
+php:
+  image: alterway/php:5.4-fpm
+  container_name: phpfpm
+  env_file:
+    - ./php.env
+    - ./wordpress.env
+    - ./mysql.env
+  hostname: php-demo-wp
+  net: ${NETWORK}
+  volumes:
+  - 'gfs2/nfs_volume:/var/www'
+  volume_driver: nfs
