@@ -1,3 +1,6 @@
 [submodule "dockerfiles/docker-php"]
 	path = dockerfiles/docker-php
 	url = https://github.com/alterway/docker-php.git
+[submodule "dockerfiles/docker-httpd"]
+	path = dockerfiles/docker-httpd
+	url = https://github.com/alterway/docker-httpd.git
